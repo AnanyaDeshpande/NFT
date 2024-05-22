@@ -1,0 +1,57 @@
+/* Tickets.css */
+
+.tickets-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    color: black;
+  }
+  
+  .tickets-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  
+  .ticket-card {
+    background: white;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .ticket-card h2 {
+    font-size: 1.5em;
+    color: #8b0000;
+    margin-bottom: 10px;
+  }
+  
+  .ticket-card p {
+    font-size: 1em;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  .ticket-card .ticket-button {
+    background-color: #8b0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ticket-card .ticket-button:hover {
+    background-color: #ff4500;
+  }
+  

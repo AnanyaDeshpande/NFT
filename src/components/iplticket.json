@@ -1,0 +1,280 @@
+{
+	"abi": [
+		{
+			"inputs": [],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "matchId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "matchName",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "date",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "venue",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "price",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "nftToken",
+					"type": "uint256"
+				}
+			],
+			"name": "MatchCreated",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "buyer",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "matchId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "bill",
+					"type": "string"
+				}
+			],
+			"name": "TicketPurchased",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "matchId",
+					"type": "uint256"
+				}
+			],
+			"name": "buyTicket",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "carbonContributionRate",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "matchName",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "date",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "venue",
+					"type": "string"
+				},
+				{
+					"internalType": "uint256",
+					"name": "price",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "nftToken",
+					"type": "uint256"
+				}
+			],
+			"name": "createMatch",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "matches",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "matchName",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "date",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "venue",
+					"type": "string"
+				},
+				{
+					"internalType": "uint256",
+					"name": "price",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "nftToken",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "exists",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "owner",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "tickets",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "buyer",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "matchId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "string",
+					"name": "matchName",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "date",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "venue",
+					"type": "string"
+				},
+				{
+					"internalType": "uint256",
+					"name": "price",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "nftToken",
+					"type": "uint256"
+				},
+				{
+					"internalType": "string",
+					"name": "bill",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "totalMatches",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "withdraw",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	],
+	"networks": {
+		"5777": {
+			"events": {},
+			"links": {},
+			"address": "0x6176c92B5Ad27f1D71494dD3D367d64c06a385d7",
+			"transactionHash": "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdef"
+		}
+	}
+}
