@@ -1,26 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import userDetails from "./userDetails.json"; // Importing userDetails JSON file
 
 function Dashboard() {
-  const [userDetails, setUserDetails] = useState(null);
+  const [loggedInUserDetails, setLoggedInUserDetails] = useState(null);
 
   useEffect(() => {
-    // Retrieve user details from local storage
-    const storedUserDetails = localStorage.getItem("userDetails");
-    if (storedUserDetails) {
-      setUserDetails(JSON.parse(storedUserDetails));
-    }
+    // Retrieve username of logged-in user from local storage
+    const loggedInUsername = localStorage.getItem("loggedInUsername");
+
+    // Find user details of the logged-in user
+    const loggedInUser = userDetails.find(user => user.username === loggedInUsername);
+
+    // Set user details of the logged-in user
+    setLoggedInUserDetails(loggedInUser);
   }, []);
 
   return (
     <div>
       <h1>Welcome to Dashboard</h1>
-      {userDetails && (
+      {loggedInUserDetails && (
         <div>
-          <p>Name: {userDetails.name}</p>
-          <p>Age: {userDetails.age}</p>
-          <p>Gender: {userDetails.gender}</p>
-          <p>Username: {userDetails.username}</p>
-          {/* Note: You should not display the password in the dashboard */}
+          <h2>User Details</h2>
+          <p>Name: {loggedInUserDetails.name}</p>
+          <p>Age: {loggedInUserDetails.age}</p>
+          <p>Gender: {loggedInUserDetails.gender}</p>
+          <p>Username: {loggedInUserDetails.username}</p>
         </div>
       )}
     </div>

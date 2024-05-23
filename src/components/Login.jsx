@@ -1,32 +1,38 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
+import userDetails from "./userDetails.json";
 
 function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (event) => {
-    event.preventDefault();
+  const handleLogin = () => {
+    // Check if username and password are provided
+    if (!username || !password) {
+      alert("Please provide username and password.");
+      return;
+    }
 
-    // Retrieve the list of registered users from localStorage
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-
-    // Check if the username and password match any registered user
-    const user = users.find(user => user.username === username && user.password === password);
+    // Find user with matching username and password
+    const user = userDetails.find(
+      (user) => user.username === username && user.password === password
+    );
 
     if (user) {
-      localStorage.setItem('isLoggedIn', 'true');
-      navigate('/');
+      // Set isLoggedIn to true and navigate to home page
+      localStorage.setItem("isLoggedIn", "true");
+      navigate("/");
     } else {
-      alert('Invalid username or password. Please try again.');
+      // Display error message for invalid credentials
+      alert("Invalid username or password. Please try again.");
     }
   };
 
   return (
     <div className="login-container">
-      <form className="login-form" onSubmit={handleLogin}>
+      <form className="login-form" onSubmit={(e) => e.preventDefault()}>
         <h2>Login</h2>
         <label>
           Username:
@@ -44,8 +50,12 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <button type="submit">Login</button>
-        <p>New user? <Link to="/register">Register here</Link></p>
+        <button type="button" onClick={handleLogin}>
+          Login
+        </button>
+        <p>
+          New user? <Link to="/register">Register here</Link>
+        </p>
       </form>
     </div>
   );
