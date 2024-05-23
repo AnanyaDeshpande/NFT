@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 function ConfirmTicket() {
   const location = useLocation();
@@ -15,7 +15,9 @@ function ConfirmTicket() {
         <p>Price: {selectedMatch.price} IPL Tokens</p>
         <p>NFT Token: {selectedMatch.nftToken}</p>
       </div>
-      {/* Add more details as needed */}
+      <Link to="/">
+        <button>Back to Home</button>
+      </Link>
     </div>
   );
 }

@@ -5,7 +5,9 @@ import Home from './components/Home';
 import Tickets from './components/Tickets';
 import About from './components/About';
 import ConfirmTicket from './components/ConfirmTicket';
-
+import Login from './components/Login';
+import Register from './components/Register'
+import Dashboard from './components/Dashboard';
 function App() {
   return (
     <AccountProvider>
@@ -15,7 +17,10 @@ function App() {
           <Route path="/tickets" element={<Tickets />} />
           <Route path="/confirmticket" element={<ConfirmTicket />} />
           <Route path="/about" element={<About />} />
-
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/dashboard" element={<Dashboard/>}/>
+    
         </Routes>
       </Router>
     </AccountProvider>
