@@ -81,7 +81,7 @@ function Home() {
   return (
     <div className="home-container">
       <nav className="navbar">
-        <div className="navbar-logo" style={{ fontFamily: "Lucida Handwriting, cursive" }}>IPL Ticket Booking</div>
+      <div className="navbar-logo" style={{ fontFamily: "Lucida Handwriting, cursive", fontSize: "24px" }}>IPL Ticket Booking</div>
         <ul className="navbar-links">
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
@@ -105,10 +105,9 @@ function Home() {
         </div>
       </nav>
 
-      <header className="home-header">
-        <div className="header-content">
-          <p>Get access to IPL tickets using IPL tokens. Buy, sell, and manage your tickets seamlessly!</p>
-          <div id="accountDetails">
+      <div className="header-content">
+        <h1 className="highlighted-text">Get access to IPL Tickets using IPL Tokens. Buy, and manage your tickets seamlessly</h1>
+        <div id="accountDetails">
             {accounts.length > 0 ? (
               <div>
                 <select id="accountList" value={selectedAccount} onChange={(event) => setSelectedAccount(event.target.value)}>
@@ -123,9 +122,10 @@ function Home() {
             ) : (
               <p>No accounts connected</p>
             )}
-          </div>
-        </div>
-      </header>
+</div>
+
+
+      </div>
       <img src={bgImage} alt="IPL" className="home-image" />
     </div>
   );

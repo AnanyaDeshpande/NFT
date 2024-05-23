@@ -1,18 +1,23 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #9a92d2;
+  background-color: #FFF2D7;
 }
 
 .navbar {
   width: 100%;
-  background-color: #ffefd5;
+  background-color: #FF70AB;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.highlighted-text {
+  
+  color: #8b0000;
+}
+
 
 .navbar-logo {
   font-size: 1.5em;
@@ -61,7 +66,6 @@ body {
   color: #ff4500;
 }
 
-
 .navbar-login a {
   text-decoration: none;
   color: #8b0000;
@@ -72,7 +76,9 @@ body {
 .navbar-login a:hover {
   color: #ff4500;
 }
-
+.header-content{
+  color: black;
+}
 .home-container {
   display: flex;
   flex-direction: column;
@@ -82,48 +88,6 @@ body {
   color: white;
 }
 
-.home-header {
-  width: 100%;
-  padding: 50px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  color: black;
-  background-color: transparent; /* Remove background color */
-}
-
-
-.header-content {
-  max-width: 800px;
-}
-
-.home-header h1 {
-  font-size: 3em;
-  margin-bottom: 20px;
-  color: #141412;
-}
-
-.home-header p {
-  font-size: 1.5em;
-  margin-bottom: 30px;
-}
-
-.home-header .home-button {
-  background-color: #ffd700;
-  color: #8b0000;
-  border: none;
-  padding: 15px 30px;
-  font-size: 1.2em;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.home-header .home-button:hover {
-  background-color: #ffa500;
-}
 
 .home-image {
   width: 100%;
@@ -178,9 +142,7 @@ body {
 .home-card .home-button:hover {
   background-color: #ff4500;
 }
-/* Home.css */
 
-/* Existing styles for dropdown */
 .dropdown {
   position: relative;
 }
@@ -192,6 +154,7 @@ body {
   min-width: 160px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   z-index: 1;
+  border-radius: 5px;
 }
 
 .dropdown-content a {
@@ -199,26 +162,14 @@ body {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
+  background-color: #ddd;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-/* New styles for the dropdown */
-.dropdown-content {
-  border-radius: 5px; /* Add border radius */
-}
-
-.dropdown-content a {
-  font-size: 16px; /* Change font size */
-  transition: background-color 0.3s ease; /* Add transition */
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd; /* Change hover background color */
 }
