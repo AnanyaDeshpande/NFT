@@ -1,30 +1,72 @@
-import React from "react";
-import "./About.css"; // If you have separate CSS for About page
+import React, { useState } from "react";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa"; // Import the arrow icons
+import "./About.css"; // Import the CSS file for About page
 
 function About() {
+  const [expandedQuestion, setExpandedQuestion] = useState(null);
+
+  const questions = [
+    {
+      id: 1,
+      question: "What is NFTicket?",
+      answer: "NFTicket is a decentralized platform that allows users to buy and resell tickets in the form of NFTs for IPL matches. It aims to provide accessibility to cricket matches, especially IPL matches, to fans of all financial backgrounds.",
+    },
+    {
+      id: 2,
+      question: "What is our mission?",
+      answer: "Our mission is to ensure that cricket matches, particularly IPL matches, are accessible to all fans, regardless of their financial status. We prioritize fan safety and security by providing separate tickets for home and away fans and enabling genuine fans to resell tickets securely.",
+    },
+    {
+      id: 3,
+      question: "How does NFT Ticket work?",
+      answer: "NFT Ticket works by leveraging blockchain technology to create non-fungible tokens (NFTs) representing tickets for IPL matches. Users can purchase these NFT tickets, which are unique digital assets, securely on the platform.",
+    },
+    {
+      id: 4,
+      question: "Why are NFTs used for tickets?",
+      answer: "NFTs are used for tickets because they offer several advantages over traditional paper or digital tickets. NFTs are tamper-proof, verifiable, and cannot be duplicated, making them ideal for representing unique and scarce assets like event tickets.",
+    },
+    {
+      id: 5,
+      question: "What are the benefits of using NFT Ticket?",
+      answer: "The benefits of using NFT Ticket include increased transparency, security, and accessibility for fans. NFT Ticket eliminates the risk of counterfeit tickets and provides a decentralized marketplace for buying, selling, and trading IPL match tickets.",
+    },
+    // Add more questions and answers here
+  ];
+
+  const handleQuestionClick = (id) => {
+    setExpandedQuestion((prevState) => (prevState === id ? null : id));
+  };
+
   return (
-    <div className="home-container"> {/* Reusing the home-container class */}
+    <div className="home-container">
       <nav className="navbar">
-        <div className="navbar-logo">IPL Ticket Booking</div>
+        <div className="navbar-logo" style={{ fontFamily: "Lucida Handwriting, cursive", fontSize: "24px" }}>IPL Ticket Booking</div>
         <ul className="navbar-links">
           <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li> {/* Ensure consistent href */}
+          <li><a href="/about">About</a></li>
           <li><a href="/tickets">Tickets</a></li>
-      
         </ul>
       </nav>
-      <header className="home-header"> {/* Reusing the home-header class */}
-        <div >
+      <header className="home-header">
+        <div>
           <h1>About</h1>
-          <p>What is NFTicket?</p>
-<p>NFTicket is a decentralized platform that allows users to buy, resell tickets in the form of NFTs for IPL matches. NFTicket also provides a comprehensive view of all IPL-related activity on a single website. This platform was developed with the IPL in mind, recognizing the immense popularity and scale of this cricket tournament. The issue of ticket reselling is significant, as cricket matches, especially in the IPL, draw a massive global audience. Ticket reselling during previous IPL seasons has been rampant, with resellers profiting unfairly from the high demand for tickets. This practice goes against the laws and regulations of many countries and undermines the accessibility of cricket matches for fans of all socioeconomic backgrounds. IPL tickets are often expensive, and the exploitation by resellers further exacerbates the challenge for middle-class and lower-class fans to attend matches in stadiums. This trend contradicts the inclusive spirit of cricket, which is a sport meant for everyone to enjoy.</p>
-
-<p>Our Mission</p>
-<p>Our mission is clear: to ensure that cricket matches, particularly IPL matches, are accessible to all fans, regardless of their financial status. We believe that being rich or poor should not determine a fan's ability to watch their favorite team play. Additionally, we prioritize the safety and security of fans attending IPL matches. Historically, clashes between fans of opposing teams have led to dangerous incidents, posing a real threat to fan safety. NFTicket addresses this issue by providing separate tickets for home and away fans for each IPL match. Furthermore, we enable genuine fans who wish to resell their tickets, not for profit, to do so in a secure manner, ensuring that tickets are resold at the original purchase price.</p>
-
+          <div className="faq-container">
+            {questions.map(({ id, question, answer }) => (
+              <div key={id} className="faq-item">
+                <div
+                  className={`faq-question ${id === expandedQuestion ? "expanded" : ""}`}
+                  onClick={() => handleQuestionClick(id)}
+                >
+                  {question}
+                  {id === expandedQuestion ? <FaChevronUp className="down-arrow" /> : <FaChevronDown className="down-arrow" />}
+                </div>
+                {id === expandedQuestion && <div className="faq-answer">{answer}</div>}
+              </div>
+            ))}
+          </div>
         </div>
       </header>
-      {/* Content section can be added similar to the Home page */}
     </div>
   );
 }

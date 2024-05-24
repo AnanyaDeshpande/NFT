@@ -6,7 +6,7 @@ body {
 
 .navbar {
   width: 100%;
-  background-color: #FF70AB;
+  background-color: #418495;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -148,14 +148,21 @@ body {
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  position: absolute; /* Use absolute positioning within a relatively positioned parent */
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 5px;
+  top: 100%; /* Position it just below the button */
+  right: 0; /* Align it to the right edge of the parent container */
+  max-width: calc(100vw - 20px); /* Ensure it does not exceed the viewport width */
+  width: fit-content;
+  overflow: auto; /* Add scrolling if content exceeds available space */
 }
+
 
 .dropdown-content a {
   color: black;

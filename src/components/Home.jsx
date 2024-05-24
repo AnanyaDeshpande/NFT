@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { MdPerson, MdDashboard, MdLogout } from "react-icons/md";
+import { MdPerson, MdLogout } from "react-icons/md";
+import { AiOutlineDashboard } from "react-icons/ai"; // Import the new dashboard icon
 
 import "./Home.css";
 import bgImage from './bg.jpg';
@@ -81,7 +82,7 @@ function Home() {
   return (
     <div className="home-container">
       <nav className="navbar">
-      <div className="navbar-logo" style={{ fontFamily: "Lucida Handwriting, cursive", fontSize: "24px" }}>IPL Ticket Booking</div>
+        <div className="navbar-logo" style={{ fontFamily: "Lucida Handwriting, cursive", fontSize: "24px" }}>IPL Ticket Booking</div>
         <ul className="navbar-links">
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
@@ -89,12 +90,12 @@ function Home() {
         </ul>
         <div className="navbar-login">
           {isLoggedIn ? (
-            <div className="dropdown" ref={dropdownRef}>
+            <div className="dropdown" ref={dropdownRef} style={{ position: 'relative' }}>
               <button className="profile-icon" onClick={handleProfileClick}><MdPerson size={24} /></button>
               {dropdownOpen && (
                 <div className="dropdown-content">
                   <button className="connect-wallet-button" onClick={connectMetaMask}>Connect Wallet</button>
-                  <a href="#" onClick={() => navigate('/dashboard')}><MdDashboard size={24} /> Dashboard</a>
+                  <a href="#" onClick={() => navigate('/dashboard')}><AiOutlineDashboard size={24} /> Dashboard</a>
                   <a href="#" onClick={handleLogout}><MdLogout size={24} /> Logout</a>
                 </div>
               )}
@@ -108,23 +109,21 @@ function Home() {
       <div className="header-content">
         <h1 className="highlighted-text">Get access to IPL Tickets using IPL Tokens. Buy, and manage your tickets seamlessly</h1>
         <div id="accountDetails">
-            {accounts.length > 0 ? (
-              <div>
-                <select id="accountList" value={selectedAccount} onChange={(event) => setSelectedAccount(event.target.value)}>
-                  {accounts.map((account) => (
-                    <option key={account} value={account}>
-                      {account}
-                    </option>
-                  ))}
-                </select>
-                <p>Selected Account: {selectedAccount}</p>
-              </div>
-            ) : (
-              <p>No accounts connected</p>
-            )}
-</div>
-
-
+          {accounts.length > 0 ? (
+            <div>
+              <select id="accountList" value={selectedAccount} onChange={(event) => setSelectedAccount(event.target.value)}>
+                {accounts.map((account) => (
+                  <option key={account} value={account}>
+                    {account}
+                  </option>
+                ))}
+              </select>
+              <p>Selected Account: {selectedAccount}</p>
+            </div>
+          ) : (
+            <p>No accounts connected</p>
+          )}
+        </div>
       </div>
       <img src={bgImage} alt="IPL" className="home-image" />
     </div>
