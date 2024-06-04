@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { IoIosHome } from 'react-icons/io';
 import './ConfirmTicket.css';
+import './Navbar.css';
 
 function ConfirmTicket() {
   const location = useLocation();

@@ -4,44 +4,7 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #FFF2D7;
   }
-  
-  .navbar {
-    width: 100%;
-    background-color: #ffefd5;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .navbar-logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #8b0000;
-  }
-  
-  .navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-  }
-  
-  .navbar-links li {
-    margin: 0;
-  }
-  
-  .navbar-links a {
-    text-decoration: none;
-    color: #8b0000;
-    font-size: 1em;
-    transition: color 0.3s ease;
-  }
-  
-  .navbar-links a:hover {
-    color: #ff4500;
-  }
-  
+
   .dashboard-container {
     display: flex;
     flex-direction: column;

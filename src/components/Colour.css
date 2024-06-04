@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css?family=Alegreya");
+@import url("https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;700&display=swap");
+
+:root {
+  --rcbred: #ec1c24;
+  --rcbredhh: rgb(103, 0, 0);
+  --rcbyellow: #d1ab3e;
+  --rcbblack: #2b2a29;
+  --navyblue: #1e3149;
+  --grayish: #c6c3bc;
+  --palebrown: #967c69;
+  --armygreen: #435046;
+
+  --cskyellow: #ffff3c;
+  --cskyellow--: #ffffc6;
+  --cskorange: #f15c19;
+  --cskblue: #00adef;
+  --cskblue: #1d418c;
+}
+
+body {
+  font-family: "Darker Grotesque";
+  /* font-family: 'Times New Roman'; */
+
+}

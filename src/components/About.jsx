@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa"; // Import the arrow icons
 import "./About.css"; // Import the CSS file for About page
 
+import bgImage from './bg2.png';
+import logo1 from './strlogo.png';
+
 function About() {
   const [expandedQuestion, setExpandedQuestion] = useState(null);
 
@@ -41,12 +44,15 @@ function About() {
   return (
     <div className="home-container">
       <nav className="navbar">
-        <div className="navbar-logo" style={{ fontFamily: "Lucida Handwriting, cursive", fontSize: "24px" }}>IPL Ticket Booking</div>
+      <img src={logo1} alt="teamlogo" className="nav-logo-image" />
+
+        <div className="navbar-logo">IPL Ticket Booking</div>
         <ul className="navbar-links">
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/tickets">Tickets</a></li>
         </ul>
+        
       </nav>
       <header className="home-header">
         <div>

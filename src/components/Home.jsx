@@ -2,9 +2,16 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdPerson, MdLogout } from "react-icons/md";
 import { AiOutlineDashboard } from "react-icons/ai"; // Import the new dashboard icon
+import AutoType from "./AutoType";
 
 import "./Home.css";
-import bgImage from './bg.jpg';
+import "./Navbar.css";
+// import bgImage from './bg.jpg';
+import bgImage from './bg2.png';
+import logo1 from './strlogo.png';
+// import logo1 from 'D:/Ace/Practicals/blockchain/june1/NFT/src/assets/strlogo.png';
+
+
 
 function Home() {
   const [accounts, setAccounts] = useState([]);
@@ -82,13 +89,17 @@ function Home() {
   return (
     <div className="home-container">
       <nav className="navbar">
-        <div className="navbar-logo" style={{ fontFamily: "Lucida Handwriting, cursive", fontSize: "24px" }}>IPL Ticket Booking</div>
+        <img src={logo1} alt="teamlogo" className="nav-logo-image" />
+
+        <div className="navbar-logo">IPL Ticket Booking</div>
         <ul className="navbar-links">
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/tickets">Tickets</a></li>
         </ul>
-        <div className="navbar-login">
+
+        {/* <div className="navbar-login"> */}
+        <div className="navbar-login" style={{position:'absolute', right:'0', padding: '30px', flexWrap:'wrap' }}>
           {isLoggedIn ? (
             <div className="dropdown" ref={dropdownRef} style={{ position: 'relative' }}>
               <button className="profile-icon" onClick={handleProfileClick}><MdPerson size={24} /></button>
@@ -106,8 +117,11 @@ function Home() {
         </div>
       </nav>
 
+      
+
       <div className="header-content">
-        <h1 className="highlighted-text">Get access to IPL Tickets using IPL Tokens. Buy, and manage your tickets seamlessly</h1>
+        {/* that sentence */}
+      <AutoType />
         <div id="accountDetails">
           {accounts.length > 0 ? (
             <div>

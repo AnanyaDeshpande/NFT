@@ -6,6 +6,9 @@ import IPLTicketing from "./IPLTicketNFT.json"; // Import the IPLTicketing contr
 import "./Tickets.css";
 import axios from 'axios'; // Import axios for HTTP requests
 
+import "./Navbar.css";
+import logo1 from './strlogo.png';
+
 function Tickets() {
   const { selectedAccount } = useContext(AccountContext);
   const [web3, setWeb3] = useState(null);
@@ -149,6 +152,8 @@ function Tickets() {
   return (
     <div className="home-container">
       <nav className="navbar">
+        <img src={logo1} alt="teamlogo" className="nav-logo-image" />
+
         <div className="navbar-logo">IPL Ticket Booking</div>
         <ul className="navbar-links">
           <li><a href="/">Home</a></li>
