@@ -65,8 +65,17 @@
   padding:'50px'
 }
 
+.navbar-login button{
+  background-color: var(--cskyellow--);
+  border: 1px solid black;
+  /* width: 100px; */
+  align-items: center;
+  text-align: center;
+
+}
+
 .navbar-login button:hover {
-  color:var(--rcbred);
+  color:var(--rcbredhh);
   transition: color 0.5s ease;
 }
 
@@ -80,13 +89,16 @@
 
 .dropdown {
   position: relative;
+  align-items: center;
+  padding: 5px;
+  
 }
 
 .dropdown-content {
   display: flex;
   flex-direction: column;
   position: absolute; /* Use absolute positioning within a relatively positioned parent */
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   min-width: 160px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -100,7 +112,7 @@
 
 
 .dropdown-content a {
-  color: black;
+  color: var(--navyblue);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -109,7 +121,7 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: var(--cskyellow--);
 }
 
 .dropdown:hover .dropdown-content {
