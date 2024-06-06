@@ -1,32 +1,77 @@
-import React, { useState, useEffect } from "react";
-import userDetails from "./userDetails.json"; // Importing userDetails JSON file
+import React, { useEffect, useState, useContext } from "react";
+import Web3 from 'web3';
+import { AccountContext } from './AccountContext';
+import IPLTicketing from "./iplticket.json"; // Import the IPLTicketing contract JSON
+import "./Dashboard.css";
 
 function Dashboard() {
-  const [loggedInUserDetails, setLoggedInUserDetails] = useState(null);
+  const { selectedAccount } = useContext(AccountContext);
+  const [web3, setWeb3] = useState(null);
+  const [contract, setContract] = useState(null);
+  const [accounts, setAccounts] = useState([]);
+  const [username, setUsername] = useState('');
+  const [tickets, setTickets] = useState([]);
 
   useEffect(() => {
-    // Retrieve username of logged-in user from local storage
-    const loggedInUsername = localStorage.getItem("loggedInUsername");
-
-    // Find user details of the logged-in user
-    const loggedInUser = userDetails.find(user => user.username === loggedInUsername);
-
-    // Set user details of the logged-in user
-    setLoggedInUserDetails(loggedInUser);
+    async function initWeb3() {
+      if (window.ethereum) {
+        const web3Instance = new Web3(window.ethereum);
+        setWeb3(web3Instance);
+        try {
+          const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+          setAccounts(accounts);
+          const networkId = await web3Instance.eth.net.getId();
+          const deployedNetwork = IPLTicketing.networks[networkId];
+          if (deployedNetwork) {
+            const contractInstance = new web3Instance.eth.Contract(
+              IPLTicketing.abi,
+              deployedNetwork.address
+            );
+            setContract(contractInstance);
+            console.log("Contract loaded:", contractInstance);
+          } else {
+            console.error("Contract not deployed on this network");
+          }
+        } catch (error) {
+          console.error("Error initializing web3", error);
+        }
+      } else {
+        console.error("Ethereum browser extension not detected");
+      }
+    }
+    initWeb3();
   }, []);
 
+  useEffect(() => {
+    async function fetchUserData() {
+      if (contract && selectedAccount) {
+        try {
+          const username = await contract.methods.getUsername(selectedAccount).call();
+          const tickets = await contract.methods.getTicketsByUser(selectedAccount).call();
+          setUsername(username);
+          setTickets(tickets);
+        } catch (error) {
+          console.error("Error fetching user data", error);
+        }
+      }
+    }
+    fetchUserData();
+  }, [contract, selectedAccount]);
+
   return (
-    <div>
-      <h1>Welcome to Dashboard</h1>
-      {loggedInUserDetails && (
-        <div>
-          <h2>User Details</h2>
-          <p>Name: {loggedInUserDetails.name}</p>
-          <p>Age: {loggedInUserDetails.age}</p>
-          <p>Gender: {loggedInUserDetails.gender}</p>
-          <p>Username: {loggedInUserDetails.username}</p>
-        </div>
-      )}
+    <div className="dashboard-container">
+      <h1>Welcome, {username}</h1>
+      <h2>Your Purchased Tickets:</h2>
+      <ul className="tickets-list">
+        {tickets.map((ticket, index) => (
+          <li key={index} className="ticket-item">
+            <p>Match: {ticket.matchName}</p>
+            <p>Venue: {ticket.venue}</p>
+            <p>Price: {ticket.price} IPL Tokens</p>
+            <p>NFT Token: {ticket.nftToken}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
