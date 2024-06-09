@@ -10,29 +10,30 @@ function Tickets() {
   const [web3, setWeb3] = useState(null);
   const [contract, setContract] = useState(null);
   const [accounts, setAccounts] = useState([]);
+  const [sortAsc, setSortAsc] = useState(true); // State for sorting
   const navigate = useNavigate();
 
   const matches = [
     { id: 1, matchName: 'Mumbai Indians vs Chennai Super Kings', venue: 'Wankhede Stadium, Mumbai', price: 1, nftToken: 1 },
-    { id: 2, matchName: 'Royal Challengers Bangalore vs Sunrisers Hyderabad', venue: 'M. Chinnaswamy Stadium, Bangalore', price: 140, nftToken: 102 },
-    { id: 3, matchName: 'Delhi Capitals vs Kolkata Knight Riders', venue: 'Arun Jaitley Stadium, Delhi', price: 130, nftToken: 103 },
-    { id: 4, matchName: 'Punjab Kings vs Rajasthan Royals', venue: 'Punjab Cricket Association IS Bindra Stadium, Mohali', price: 120, nftToken: 104 },
-    { id: 5, matchName: 'Chennai Super Kings vs Mumbai Indians', venue: 'MA Chidambaram Stadium, Chennai', price: 160, nftToken: 105 },
-    { id: 6, matchName: 'Sunrisers Hyderabad vs Royal Challengers Bangalore', venue: 'Rajiv Gandhi International Stadium, Hyderabad', price: 140, nftToken: 106 },
-    { id: 7, matchName: 'Kolkata Knight Riders vs Delhi Capitals', venue: 'Eden Gardens, Kolkata', price: 135, nftToken: 107 },
-    { id: 8, matchName: 'Rajasthan Royals vs Punjab Kings', venue: 'Sawai Mansingh Stadium, Jaipur', price: 125, nftToken: 108 },
-    { id: 9, matchName: 'Mumbai Indians vs Royal Challengers Bangalore', venue: 'Wankhede Stadium, Mumbai', price: 150, nftToken: 109 },
-    { id: 10, matchName: 'Chennai Super Kings vs Sunrisers Hyderabad', venue: 'MA Chidambaram Stadium, Chennai', price: 155, nftToken: 110 },
-    { id: 11, matchName: 'Delhi Capitals vs Punjab Kings', venue: 'Arun Jaitley Stadium, Delhi', price: 130, nftToken: 111 },
-    { id: 12, matchName: 'Kolkata Knight Riders vs Rajasthan Royals', venue: 'Eden Gardens, Kolkata', price: 140, nftToken: 112 },
-    { id: 13, matchName: 'Royal Challengers Bangalore vs Mumbai Indians', venue: 'M. Chinnaswamy Stadium, Bangalore', price: 150, nftToken: 113 },
-    { id: 14, matchName: 'Sunrisers Hyderabad vs Chennai Super Kings', venue: 'Rajiv Gandhi International Stadium, Hyderabad', price: 145, nftToken: 114 },
-    { id: 15, matchName: 'Punjab Kings vs Delhi Capitals', venue: 'Punjab Cricket Association IS Bindra Stadium, Mohali', price: 125, nftToken: 115 },
-    { id: 16, matchName: 'Rajasthan Royals vs Kolkata Knight Riders', venue: 'Sawai Mansingh Stadium, Jaipur', price: 135, nftToken: 116 },
-    { id: 17, matchName: 'Mumbai Indians vs Delhi Capitals', venue: 'Wankhede Stadium, Mumbai', price: 150, nftToken: 117 },
-    { id: 18, matchName: 'Royal Challengers Bangalore vs Chennai Super Kings', venue: 'M. Chinnaswamy Stadium, Bangalore', price: 155, nftToken: 118 },
-    { id: 19, matchName: 'Sunrisers Hyderabad vs Rajasthan Royals', venue: 'Rajiv Gandhi International Stadium, Hyderabad', price: 135, nftToken: 119 },
-    { id: 20, matchName: 'Kolkata Knight Riders vs Punjab Kings', venue: 'Eden Gardens, Kolkata', price: 130, nftToken: 120 }
+    { id: 2, matchName: 'Royal Challengers Bangalore vs Sunrisers Hyderabad', venue: 'M. Chinnaswamy Stadium, Bangalore', price: 5, nftToken: 5 },
+    { id: 3, matchName: 'Delhi Capitals vs Kolkata Knight Riders', venue: 'Arun Jaitley Stadium, Delhi', price: 10, nftToken: 10 },
+    { id: 4, matchName: 'Punjab Kings vs Rajasthan Royals', venue: 'Punjab Cricket Association IS Bindra Stadium, Mohali', price: 5, nftToken: 5 },
+    { id: 5, matchName: 'Chennai Super Kings vs Mumbai Indians', venue: 'MA Chidambaram Stadium, Chennai', price: 15, nftToken: 15 },
+    { id: 6, matchName: 'Sunrisers Hyderabad vs Royal Challengers Bangalore', venue: 'Rajiv Gandhi International Stadium, Hyderabad', price: 10, nftToken: 10 },
+    { id: 7, matchName: 'Kolkata Knight Riders vs Delhi Capitals', venue: 'Eden Gardens, Kolkata', price: 15, nftToken: 15 },
+    { id: 8, matchName: 'Rajasthan Royals vs Punjab Kings', venue: 'Sawai Mansingh Stadium, Jaipur', price: 15, nftToken: 5 },
+    { id: 9, matchName: 'Mumbai Indians vs Royal Challengers Bangalore', venue: 'Wankhede Stadium, Mumbai', price: 15, nftToken: 15 },
+    { id: 10, matchName: 'Chennai Super Kings vs Sunrisers Hyderabad', venue: 'MA Chidambaram Stadium, Chennai', price: 10, nftToken: 10 },
+    { id: 11, matchName: 'Delhi Capitals vs Punjab Kings', venue: 'Arun Jaitley Stadium, Delhi', price: 5, nftToken: 5 },
+    { id: 12, matchName: 'Kolkata Knight Riders vs Rajasthan Royals', venue: 'Eden Gardens, Kolkata', price: 5, nftToken: 5 },
+    { id: 13, matchName: 'Royal Challengers Bangalore vs Mumbai Indians', venue: 'M. Chinnaswamy Stadium, Bangalore', price: 20, nftToken: 20 },
+    { id: 14, matchName: 'Sunrisers Hyderabad vs Chennai Super Kings', venue: 'Rajiv Gandhi International Stadium, Hyderabad', price: 15, nftToken: 15 },
+    { id: 15, matchName: 'Punjab Kings vs Delhi Capitals', venue: 'Punjab Cricket Association IS Bindra Stadium, Mohali', price: 10, nftToken: 10 },
+    { id: 16, matchName: 'Rajasthan Royals vs Kolkata Knight Riders', venue: 'Sawai Mansingh Stadium, Jaipur', price: 5, nftToken: 5 },
+    { id: 17, matchName: 'Mumbai Indians vs Delhi Capitals', venue: 'Wankhede Stadium, Mumbai', price: 10, nftToken: 10 },
+    { id: 18, matchName: 'Royal Challengers Bangalore vs Chennai Super Kings', venue: 'M. Chinnaswamy Stadium, Bangalore', price: 25, nftToken: 25 },
+    { id: 19, matchName: 'Sunrisers Hyderabad vs Rajasthan Royals', venue: 'Rajiv Gandhi International Stadium, Hyderabad', price: 15, nftToken: 15 },
+    { id: 20, matchName: 'Kolkata Knight Riders vs Punjab Kings', venue: 'Eden Gardens, Kolkata', price: 10, nftToken: 10 }
   ];
 
   useEffect(() => {
@@ -83,6 +84,8 @@ function Tickets() {
     }
   };
 
+  const sortedMatches = [...matches].sort((a, b) => sortAsc ? a.price - b.price : b.price - a.price);
+
   return (
     <div className="home-container">
       <nav className="navbar">
@@ -94,7 +97,15 @@ function Tickets() {
         </ul>
       </nav>
       <section className="tickets-content">
-        {matches.map(match => (
+        <div className="sort-container">
+          <select className="sort-dropdown" onChange={(e) => setSortAsc(e.target.value === 'asc')}>
+            <option value="asc">Sort by Price: Ascending</option>
+            <option value="desc">Sort by Price: Descending</option>
+          </select>
+        </div>
+        <br></br>
+        <br></br>
+        {sortedMatches.map(match => (
           <div key={match.id} className="ticket-card">
             <h2>{match.matchName}</h2>
             <p>Venue: {match.venue}</p>
