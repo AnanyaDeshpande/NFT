@@ -209,10 +209,11 @@
 	  }
 	],
 	"networks": {
-		"5777": {
+		"1337": {
 			"events": {},
 			"links": {},
-			"address": "0x09B299168E1aDb6D80b750B3770b2eC32d02fF3e",
+			"chainId": "1337",
+			"address": "0xb73F8270acE340C320c279cF15630C911aF2c93d",
 			"transactionHash": "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdef"
 		}
 	}

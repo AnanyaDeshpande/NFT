@@ -7,9 +7,9 @@ const AutoType = () => {
 
   useEffect(() => {
     const options = {
-      strings: ["Buy tickets", "Manage tickets", "One stop destination", "For your cricket addiction"],
-      typeSpeed: 150,
-      backSpeed: 150,
+      strings: ["Buy tickets", "One stop destination", "For your cricket addiction"],
+      typeSpeed: 50,
+      backSpeed: 50,
       loop: true,
     };
 

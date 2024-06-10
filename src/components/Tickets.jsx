@@ -1,14 +1,17 @@
 import React, { useEffect, useState, useContext } from "react";
-import Web3 from 'web3';
+import { ethers } from 'ethers';
 import { useNavigate } from 'react-router-dom';
 import { AccountContext } from './AccountContext';
 import IPLTicketing from "./iplticket.json"; // Import the IPLTicketing contract JSON
+import TicketingNFT from "./TicketingNFT.json"; // Import the TicketingNFT contract JSON
 import "./Tickets.css";
 
 function Tickets() {
   const { selectedAccount } = useContext(AccountContext);
-  const [web3, setWeb3] = useState(null);
+  const [provider, setProvider] = useState(null);
+  const [signer, setSigner] = useState(null);
   const [contract, setContract] = useState(null);
+  const [nftContract, setNftContract] = useState(null);
   const [accounts, setAccounts] = useState([]);
   const [sortAsc, setSortAsc] = useState(true); // State for sorting
   const navigate = useNavigate();
@@ -37,50 +40,116 @@ function Tickets() {
   ];
 
   useEffect(() => {
-    async function initWeb3() {
+    async function initEthers() {
       if (window.ethereum) {
-        const web3Instance = new Web3(window.ethereum);
-        setWeb3(web3Instance);
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        setProvider(provider);
+        const signer = provider.getSigner();
+        setSigner(signer);
+
         try {
-          const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+          const accounts = await provider.send("eth_requestAccounts", []);
           setAccounts(accounts);
-          const networkId = await web3Instance.eth.net.getId();
+          const network = await provider.getNetwork();
+          const networkId = network.chainId;
+
+          // Logging to debug
+          console.log("Network ID:", networkId);
+          console.log("IPLTicketing Networks:", IPLTicketing.networks);
+          console.log("TicketingNFT Networks:", TicketingNFT.networks);
+
           const deployedNetwork = IPLTicketing.networks[networkId];
-          if (deployedNetwork) {
-            const contractInstance = new web3Instance.eth.Contract(
+          const deployedNftNetwork = TicketingNFT.networks[networkId];
+
+          // More logging
+          console.log("Deployed Network:", deployedNetwork);
+          console.log("Deployed NFT Network:", deployedNftNetwork);
+
+          if (deployedNetwork && deployedNftNetwork) {
+            const contractInstance = new ethers.Contract(
+              deployedNetwork.address,
               IPLTicketing.abi,
-              deployedNetwork.address
+              signer
+            );
+            const nftContractInstance = new ethers.Contract(
+              deployedNftNetwork.address,
+              TicketingNFT.abi,
+              signer
             );
             setContract(contractInstance);
+            setNftContract(nftContractInstance);
             console.log("Contract loaded:", contractInstance);
+            console.log("NFT Contract loaded:", nftContractInstance);
           } else {
             console.error("Contract not deployed on this network");
           }
         } catch (error) {
-          console.error("Error initializing web3", error);
+          console.error("Error initializing ethers", error);
         }
       } else {
         console.error("Ethereum browser extension not detected");
       }
     }
-    initWeb3();
+    initEthers();
   }, []);
 
-  const buyTicket = async (matchId, priceInWei) => {
-    if (!contract) {
+  const transferETH = async (receiverAddress, amount) => {
+    try {
+      const provider = new ethers.providers.JsonRpcProvider("http://localhost:7545");
+      const senderPrivateKey = "0xe5ff053f7d949f7aa129a21f385226901b1f2f514fc7704d31bf2ca665b49e7d";
+      const senderWallet = new ethers.Wallet(senderPrivateKey, provider);
+      const tx = {
+        to: receiverAddress,
+        value: ethers.utils.parseEther(amount.toString()) // Convert amount to ETH
+      };
+      const transactionResponse = await senderWallet.sendTransaction(tx);
+      console.log("Transaction Hash:", transactionResponse.hash);
+      const receipt = await transactionResponse.wait();
+      console.log("Transaction was mined in block:", receipt.blockNumber);
+      return receipt;
+    } catch (error) {
+      console.error("Error transferring ETH", error);
+      throw error;
+    }
+  };
+
+  const buyTicket = async (matchId, price) => {
+    if (!contract || !nftContract) {
       console.error("Contract is not loaded");
       return;
     }
-    if (accounts.length === 0) {
-      console.error("No accounts found");
-      return;
-    }
+
     try {
-      await contract.methods.buyTicket(matchId).send({ from: accounts[0], value: priceInWei });
-      const selectedMatch = matches.find(match => match.id === matchId);
-      navigate('/confirmticket', { state: { selectedMatch } });
+      const value = ethers.utils.parseEther(price.toString());
+      console.log("Price in ETH:", value.toString());
+
+      const receipt = await transferETH("0xb73F8270acE340C320c279cF15630C911aF2c93d", ethers.utils.formatEther(value));
+
+      if (receipt) {
+        // Call the buyTicket function of the contract
+        const transaction = await contract.buyTicket(matchId, { value });
+        const receipt = await transaction.wait();
+
+        receipt.events.forEach((event) => {
+          if (event.event === "TicketPurchased") {
+            console.log("Ticket purchased:", event.args);
+          }
+        });
+
+        console.log("Transaction successful with hash:", receipt.transactionHash);
+
+        // Navigate to confirmation page with ticket details
+        navigate('/confirmticket', { state: { matchId, price, transactionHash: receipt.transactionHash } });
+      }
     } catch (error) {
       console.error("Error buying ticket", error);
+      if (error.code === "ACTION_REJECTED") {
+        console.error("Transaction rejected by the user.");
+      } else if (error.code === "INSUFFICIENT_FUNDS") {
+        console.error("You do not have enough ETH to complete this transaction.");
+      } else {
+        console.error("Transaction error:", error.message);
+      }
     }
   };
 
@@ -111,7 +180,7 @@ function Tickets() {
             <p>Venue: {match.venue}</p>
             <p>Price: {match.price} IPL Tokens</p>
             <p>NFT Token: {match.nftToken}</p>
-            <button className="ticket-button" onClick={() => buyTicket(match.id, Web3.utils.toWei(match.price.toString(), 'ether'))}>Buy Ticket</button>
+            <button className="ticket-button" onClick={() => buyTicket(match.id, match.price)}>Buy Ticket</button>
           </div>
         ))}
       </section>
