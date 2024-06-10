@@ -1,56 +1,51 @@
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #FFF2D7;
-  }
-  
-  .register-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 0 30px;
-  }
-  
-  .register-form {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .register-form h2 {
-    font-size: 1.5em;
-    color: #8b0000;
-    margin-bottom: 20px;
-  }
-  
-  .register-form label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .register-form input {
-    width: 90%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .register-form button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #8b0000;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .register-form button:hover {
-    background-color: #ff4500;
-  }
-  
+@import url("Colour.css");
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 30px;
+}
+
+.register-form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.register-form h2 {
+  font-size: 1.5em;
+  color: #8b0000;
+  margin-bottom: 20px;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.register-form input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.register-form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #8b0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-form button:hover {
+  background-color: #ff4500;
+}

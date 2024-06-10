@@ -10,9 +10,8 @@
   --grayish: #c6c3bc;
   --palebrown: #967c69;
   --armygreen: #435046;
-
   --cskyellow: #ffff3c;
-  --cskyellow--: #ffffc6;
+  --cskyellow--: #ffffd7;
   --cskorange: #f15c19;
   --cskblue: #00adef;
   --cskblue: #1d418c;
@@ -21,5 +20,9 @@
 body {
   font-family: "Darker Grotesque";
   /* font-family: 'Times New Roman'; */
+  margin: 0;
+  background-color: var(--cskyellow--);
+  font-size: 1.2em;
 
 }
+
