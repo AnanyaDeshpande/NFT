@@ -6,7 +6,7 @@ import logo1 from './strlogo.png';
 function ConfirmTicket() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { matchId, price, transactionHash } = location.state || {};
+  const { matchId, matchName,price, transactionHash } = location.state || {};
 
   if (!matchId) {
     navigate('/tickets'); // Redirect back to tickets if no match data is found

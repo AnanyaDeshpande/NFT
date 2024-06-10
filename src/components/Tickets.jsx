@@ -99,7 +99,7 @@ function Tickets() {
   const transferETH = async (receiverAddress, amount) => {
     try {
       const provider = new ethers.providers.JsonRpcProvider("http://localhost:7545");
-      const senderPrivateKey = "0xe5ff053f7d949f7aa129a21f385226901b1f2f514fc7704d31bf2ca665b49e7d";
+      const senderPrivateKey = "0xc18f65aa0d16c86413c15c4ec88f6fff1d98ae63da1046d47b4d49a83cc85d0e";
       const senderWallet = new ethers.Wallet(senderPrivateKey, provider);
       const tx = {
         to: receiverAddress,
@@ -116,7 +116,7 @@ function Tickets() {
     }
   };
 
-  const buyTicket = async (matchId, price) => {
+  const buyTicket = async (matchId, price,matchName) => {
     if (!contract || !nftContract) {
       console.error("Contract is not loaded");
       return;
@@ -126,7 +126,7 @@ function Tickets() {
       const value = ethers.utils.parseEther(price.toString());
       console.log("Price in ETH:", value.toString());
 
-      const receipt = await transferETH("0xb73F8270acE340C320c279cF15630C911aF2c93d", ethers.utils.formatEther(value));
+      const receipt = await transferETH("0x6376e9AfcE9aBaF9782a9d2C34b384813B0AA52f", ethers.utils.formatEther(value));
 
       if (receipt) {
         // Call the buyTicket function of the contract
@@ -142,7 +142,7 @@ function Tickets() {
         console.log("Transaction successful with hash:", receipt.transactionHash);
 
         // Navigate to confirmation page with ticket details
-        navigate('/confirmticket', { state: { matchId, price, transactionHash: receipt.transactionHash } });
+        navigate('/confirmticket', { state: { matchId,matchName, price, transactionHash: receipt.transactionHash } });
       }
     } catch (error) {
       console.error("Error buying ticket", error);

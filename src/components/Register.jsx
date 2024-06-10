@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
-import userDetails from "./userDetails.json";
 
 function Register() {
   const [name, setName] = useState("");
@@ -25,21 +24,11 @@ function Register() {
       return;
     }
 
-    // Check if username already exists
-    const existingUser = userDetails.find(user => user.username === username);
-    if (existingUser) {
-      alert("Username already exists. Please choose another one.");
-      return;
-    }
-
     // Create new user object
     const newUser = { name, age, gender, username, password };
 
-    // Append new user to existing user details
-    userDetails.push(newUser);
-
-    // Update the userDetails.json file
-    localStorage.setItem("userDetails", JSON.stringify(userDetails));
+    // Store user details in localStorage
+    localStorage.setItem("user", JSON.stringify(newUser));
 
     // Notify user and navigate to login page
     alert("Registration successful. Please login.");

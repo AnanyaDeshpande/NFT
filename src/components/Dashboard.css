@@ -1,52 +1,89 @@
-/* Dashboard.css */
 @import url("Colour.css");
 
-  .dashboard-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    color: black;
-  }
-  
-  .dashboard-content {
-    width: 80%;
-    background-color: #fff;
-    color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .dashboard-content h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #8b0000;
-  }
-  
-  .dashboard-content h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #8b0000;
-  }
-  
-  .dashboard-content p {
-    font-size: 1em;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .dashboard-content ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .dashboard-content li {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
+.dashboard {
+  background-color: var(--lightgrey);
+  border: 1px solid var(--grey);
+  border-radius: 5px;
+  padding: 20px;
+  margin: 50px auto;
+  width: 80%; /* Adjust width as needed */
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard h1 {
+  font-size: 35px;
+  color: var(--darkblue);
+  margin-bottom: 20px;
+}
+
+.dashboard .user-details h2,
+.dashboard .tickets h2 {
+  font-size: 24px;
+  color: var(--navyblue);
+  margin-bottom: 10px;
+}
+
+.dashboard .tickets ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dashboard .tickets ul li {
+  margin-bottom: 10px;
+}
+
+.dashboard .tickets ul li p {
+  font-size: 18px;
+  color: var(--black);
+  margin-bottom: 5px;
+}
+
+.dashboard .tickets ul li p strong {
+  font-weight: bold;
+  color: var(--navyblue);
+}
+
+.dashboard .tickets p {
+  font-size: 18px;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.dashboard .tickets p::before {
+  content: "No tickets purchased yet.";
+  color: var(--grey);
+}
+
+.dashboard .tickets p::selection {
+  color: var(--navyblue);
+}
+
+.dashboard .tickets p::selection {
+  background-color: var(--lightblue);
+}
+
+.dashboard .tickets p::placeholder {
+  color: var(--grey);
+}
+
+.dashboard .tickets p::selection {
+  background-color: var(--lightblue);
+}
+
+.dashboard .tickets p::placeholder {
+  color: var(--grey);
+}
+
+.dashboard .tickets p::placeholder {
+  font-style: italic;
+}
+
+.dashboard .tickets p a {
+  color: var(--navyblue);
+  text-decoration: underline;
+}
+
+.dashboard .tickets p a:hover {
+  color: var(--darkblue);
+}

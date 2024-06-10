@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import userDetails from "./userDetails.json";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -15,12 +14,11 @@ function Login() {
       return;
     }
 
-    // Find user with matching username and password
-    const user = userDetails.find(
-      (user) => user.username === username && user.password === password
-    );
+    // Retrieve user details from localStorage
+    const storedUser = JSON.parse(localStorage.getItem("user"));
 
-    if (user) {
+    // Check if user exists and passwords match
+    if (storedUser && storedUser.username === username && storedUser.password === password) {
       // Set isLoggedIn to true and navigate to home page
       localStorage.setItem("isLoggedIn", "true");
       navigate("/");
@@ -32,7 +30,7 @@ function Login() {
 
   return (
     <div className="login-container">
-      <form className="login-form" onSubmit={(e) => e.preventDefault()}>
+      <form className="login-form">
         <h2>Login</h2>
         <label>
           Username:

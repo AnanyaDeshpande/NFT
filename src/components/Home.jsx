@@ -6,7 +6,6 @@ import AutoType from "./AutoType";
 
 import "./Home.css";
 import "./Navbar.css";
-// import bgImage from './bg.jpg';
 import bgImage from './bg2.png';
 import logo1 from './strlogo.png';
 // import logo1 from 'D:/Ace/Practicals/blockchain/june1/NFT/src/assets/strlogo.png';

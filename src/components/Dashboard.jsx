@@ -1,79 +1,88 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
-import { AccountContext } from './AccountContext';
-import IPLTicketing from "./iplticket.json"; // Import the IPLTicketing contract JSON
-import "./Dashboard.css";
+import IPLTicketNFT from './IPLTicketNFT.json'; // Import the contract ABI
+import logo1 from './strlogo.png';
+import './Dashboard.css'; // Import the CSS file
 
-function Dashboard() {
-  const { selectedAccount } = useContext(AccountContext);
-  const [web3, setWeb3] = useState(null);
-  const [contract, setContract] = useState(null);
-  const [accounts, setAccounts] = useState([]);
-  const [username, setUsername] = useState('');
-  const [tickets, setTickets] = useState([]);
+const Dashboard = () => {
+    const [user, setUser] = useState(null);
+    const [tickets, setTickets] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    async function initWeb3() {
-      if (window.ethereum) {
-        const web3Instance = new Web3(window.ethereum);
-        setWeb3(web3Instance);
-        try {
-          const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
-          setAccounts(accounts);
-          const networkId = await web3Instance.eth.net.getId();
-          const deployedNetwork = IPLTicketing.networks[networkId];
-          if (deployedNetwork) {
-            const contractInstance = new web3Instance.eth.Contract(
-              IPLTicketing.abi,
-              deployedNetwork.address
-            );
-            setContract(contractInstance);
-            console.log("Contract loaded:", contractInstance);
-          } else {
-            console.error("Contract not deployed on this network");
-          }
-        } catch (error) {
-          console.error("Error initializing web3", error);
-        }
-      } else {
-        console.error("Ethereum browser extension not detected");
-      }
-    }
-    initWeb3();
-  }, []);
+    useEffect(() => {
+        const loadUserTickets = async () => {
+            try {
+                // Connect to the Ethereum network
+                const web3 = new Web3(Web3.givenProvider || 'http://localhost:7545'); // Update with your Ethereum node URL
+                const accounts = await web3.eth.getAccounts();
+    
+                // Load user details from localStorage
+                const loggedUser = JSON.parse(localStorage.getItem("user"));
+                if (!loggedUser) {
+                    throw new Error("User details not found.");
+                }
+                setUser(loggedUser);
+    
+                // Retrieve ticket details from localStorage
+                const ticketDetails = JSON.parse(localStorage.getItem("ticketDetails"));
+                if (ticketDetails) {
+                    setTickets([ticketDetails]); // Store ticket details in state
+                } else {
+                    setTickets([]); // If no tickets found, initialize as an empty array
+                }
+                setLoading(false);
+            } catch (error) {
+                console.error("Error loading tickets:", error);
+                setLoading(false);
+            }
+        };
+    
+        loadUserTickets();
+    }, []);
+    
 
-  useEffect(() => {
-    async function fetchUserData() {
-      if (contract && selectedAccount) {
-        try {
-          const username = await contract.methods.getUsername(selectedAccount).call();
-          const tickets = await contract.methods.getTicketsByUser(selectedAccount).call();
-          setUsername(username);
-          setTickets(tickets);
-        } catch (error) {
-          console.error("Error fetching user data", error);
-        }
-      }
-    }
-    fetchUserData();
-  }, [contract, selectedAccount]);
-
-  return (
-    <div className="dashboard-container">
-      <h1>Welcome, {username}</h1>
-      <h2>Your Purchased Tickets:</h2>
-      <ul className="tickets-list">
-        {tickets.map((ticket, index) => (
-          <li key={index} className="ticket-item">
-            <p>Match: {ticket.matchName}</p>
-            <p>Venue: {ticket.venue}</p>
-            <p>Price: {ticket.price} IPL Tokens</p>
-            <p>NFT Token: {ticket.nftToken}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+    return (
+        <div>
+            <nav className="navbar">
+                <img src={logo1} alt="teamlogo" className="nav-logo-image" />
+                <div className="navbar-logo">IPL Ticket Booking</div>
+                <ul className="navbar-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/About">About</a></li>
+                    <li><a href="/tickets">Tickets</a></li>
+                </ul>
+            </nav>
+            <div className="dashboard">
+                <h1>Dashboard</h1>
+                <div className="user-details">
+                    <h2>User Details</h2>
+                    <p><strong>Username:</strong> {user?.username}</p>
+                    <p><strong>Name:</strong> {user?.name}</p>
+                </div>
+                <div className="tickets">
+                    <h2>Purchased Tickets</h2>
+                    {loading ? (
+                        <p>Loading...</p>
+                    ) : (
+                        tickets.length > 0 ? (
+                            <ul>
+                                {tickets.map((ticket, index) => (
+                                    <li key={index}>
+                                        <p><strong>Match ID:</strong> {ticket.matchId}</p>
+                                        <p><strong>Match Name:</strong> {ticket.matchName}</p>
+                                        <p><strong>Price:</strong> {ticket.price} IPL Tokens</p>
+                                        <p><strong>Transaction Hash:</strong> {ticket.transactionHash}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p>No tickets purchased yet.</p>
+                        )
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default Dashboard;
