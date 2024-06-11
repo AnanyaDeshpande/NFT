@@ -18,7 +18,8 @@
 }
 
 body {
-  font-family: "Darker Grotesque";
+  /* font-family: "Darker Grotesque"; */
+  font-family: "Alegreya";
   /* font-family: 'Times New Roman'; */
   margin: 0;
   background-color: var(--cskyellow--);

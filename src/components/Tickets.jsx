@@ -5,8 +5,8 @@ import { AccountContext } from './AccountContext';
 import IPLTicketing from "./iplticket.json"; // Import the IPLTicketing contract JSON
 import TicketingNFT from "./TicketingNFT.json"; // Import the TicketingNFT contract JSON
 import "./Tickets.css";
+import logo1 from "../assets/strlogo.png";
 
-import logo1 from './strlogo.png';
 
 
 function Tickets() {

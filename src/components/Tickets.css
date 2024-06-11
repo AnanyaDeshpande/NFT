@@ -15,7 +15,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
-    margin-top: 40px;
+    margin-top: 10px;
     color: #ff4500;
   }
   
@@ -77,10 +77,12 @@
     padding: 8px;
     /* font-size: 14px; */
     border-radius: 2px;
-    border: 1px solid black;
+    border: 1px solid var(--grayish);
     cursor: pointer;
     background-color: white;
     color: black;
+    font-size: 0.9em;
+    border-radius: 7px;
   }
 
   .sortingsec{
@@ -88,6 +90,6 @@
     padding: 20px;
     /* border: 1px solid black; */
     margin-left: 0%;
-    margin-right: 77%;
+    margin-right: 67%;
   }
   

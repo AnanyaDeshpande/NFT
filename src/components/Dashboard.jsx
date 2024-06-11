@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import IPLTicketNFT from './IPLTicketNFT.json'; // Import the contract ABI
-import logo1 from './strlogo.png';
+import logo1 from '../assets/strlogo.png';
 import './Dashboard.css'; // Import the CSS file
 
 const Dashboard = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import "./ConfirmTicket.css";
-import logo1 from './strlogo.png';
+import logo1 from '../assets/strlogo.png';
 
 function ConfirmTicket() {
   const location = useLocation();
