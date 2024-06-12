@@ -63,6 +63,22 @@ function About() {
           <strong>The Team</strong>
         </h1>
         <div className="teamcards">
+        <div class="card">
+        <img class="card-img-top" src={p3} alt="Card image cap" />
+        <div class="card-body">
+            <p class="card-text">
+                <strong>Ananya Deshpande</strong>
+            </p>
+            <div className="link-images">
+                <a href="https://github.com/AnanyaDeshpande">
+                    <img src={git} />
+                </a>
+                <a href="https://www.linkedin.com/in/ananya-deshpande-9b7ab0261/">
+                    <img src={link} />
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="card">
         <img class="card-img-top" src={p1} alt="Card image cap" />
         <div class="card-body">
@@ -79,22 +95,7 @@ function About() {
             </div>
         </div>
     </div>
-    <div class="card">
-        <img class="card-img-top" src={p3} alt="Card image cap" />
-        <div class="card-body">
-            <p class="card-text">
-                <strong>Ananya Deshpande</strong>
-            </p>
-            <div className="link-images">
-                <a href="https://github.com/AnanyaDeshpande">
-                    <img src={git} />
-                </a>
-                <a href="https://www.linkedin.com/in/ananya-deshpande-9b7ab0261/">
-                    <img src={link} />
-                </a>
-            </div>
-        </div>
-    </div>
+    
     <div class="card">
         <img class="card-img-top" src={p2} alt="Card image cap" />
         <div class="card-body">
