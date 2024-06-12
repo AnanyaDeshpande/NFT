@@ -6,6 +6,7 @@ import AutoType from "./AutoType";
 
 import "./Home.css";
 import "./Navbar.css";
+import "./Colour.css";
 import bgImage from "../assets/bg2.png";
 import logo1 from "../assets/strlogo.png";
 import pw from "../assets/walletplain.png";
@@ -100,15 +101,11 @@ function Home() {
 
         <div className="navbar-logo">IPL Ticket Booking</div>
         <ul className="navbar-links">
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/about">About</a>
-          </li>
-          <li>
-            <a href="/tickets">Tickets</a>
-          </li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/tickets">Tickets</a></li>
+          <li><a href="/contactus">Contact Us</a></li>
+          
         </ul>
 
         {/* <div className="navbar-login"> */}
@@ -132,29 +129,18 @@ function Home() {
               </button>
               {dropdownOpen && (
                 <div className="dropdown-content">
-                  <button
-                    className="connect-wallet-button"
-                    onClick={connectMetaMask}
-                  >
-                    Connect Wallet
-                  </button>
-                  <a href="#" onClick={() => navigate("/dashboard")}>
-                    {/* <AiOutlineDashboard size={24} />  */}
-        <img src={dash} alt="dashboard" className="drop-img" />
+                  <button className="connect-wallet-button" onClick={connectMetaMask}>Connect Wallet</button>
+                  <a href="#" onClick={() => navigate('/dashboard')}> 
                     
-                    Dashboard
-                  </a>
-                  <a href="#" onClick={handleLogout}>
-                    <MdLogout size={24} /> Logout
-                  </a>
+                    {/* <AiOutlineDashboard size={24} /> */}
+                    <img src={dash} alt="dashboard" className="drop-img" />
+                     Dashboard</a>
+                  <a href="#" onClick={handleLogout}><MdLogout size={24} /> Logout</a>
                 </div>
               )}
             </div>
           ) : (
-            // <button >Login</button>
-            <button onClick={() => navigate("/login")} className="profile-icon">
-                <MdPerson size={24} />
-              </button>
+            <button className="loginOnly" onClick={() => navigate('/login')}>Login</button>
           )}
         </div>
       </nav>
@@ -176,14 +162,15 @@ function Home() {
                 ))}
               </select>
               <div className="wallet-status">
-                <div className="wallet-img-div">
-                  <img src={cw} alt="wallet1" className="wallet-image" />
-                </div>
+    <div className="wallet-img-div" style={{animation: 'slide-in 2s forwards'}}>
+        <img src={cw} alt="wallet1" className="wallet-image" />
+    </div>
 
-                <p>Selected Account: {selectedAccount}</p>
-              </div>
+    <p style={{animation: 'fade-in 2s forwards'}}>Selected Account: {selectedAccount}</p>
+</div>
             </div>
           ) : (
+
             <div className="wallet-status">
               <div className="wallet-img-div">
                 <img src={pw} alt="wallet2" className="wallet-image" />

@@ -6,7 +6,7 @@
 
 
   .navbar {
-  font-family: "Alegreya";
+  /* font-family: "Alegreya"; */
   width: 98%;
   background-color: var(--navyblue);
   display: flex;
@@ -149,4 +149,16 @@
 .nav-logo-image {
   max-width: 50px;
   min-width: 20px;
+}
+
+
+
+.loginOnly {
+  font-size: 1.3em;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  border: 1px solid var(--grayish);
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-family: 'Times New Roman';
 }

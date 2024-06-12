@@ -57,13 +57,25 @@ function Register() {
         </label>
         <label>
           Gender:
-          <select value={gender} onChange={(e) => setGender(e.target.value)}>
+          <select className="sort-dropdown" value={gender} onChange={(e) => setGender(e.target.value)}>
             <option value="">Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
           </select>
         </label>
+
+
+        {/* <section className="sortingsec">
+      <div className="sort-container">
+          <select className="sort-dropdown" onChange={(e) => setSortAsc(e.target.value === 'asc')}>
+            <option value="asc">Sort by Price: Low to High</option>
+            <option value="desc">Sort by Price: High to Low</option>
+          </select>
+        </div>
+      </section> */}
+
+
         <label>
           Username:
           <input

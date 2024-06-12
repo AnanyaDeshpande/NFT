@@ -31,7 +31,7 @@ function Login() {
   return (
     <div className="login-container">
       <form className="login-form">
-        <h2>Login</h2>
+        <h2 >Login</h2>
         <label>
           Username:
           <input

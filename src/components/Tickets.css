@@ -16,6 +16,7 @@
     justify-content: center;
     gap: 30px;
     margin-top: 10px;
+    margin-top: 10px;
     color: #ff4500;
   }
   
@@ -78,9 +79,12 @@
     /* font-size: 14px; */
     border-radius: 2px;
     border: 1px solid var(--grayish);
+    border: 1px solid var(--grayish);
     cursor: pointer;
     background-color: white;
     color: black;
+    font-size: 0.9em;
+    border-radius: 7px;
     font-size: 0.9em;
     border-radius: 7px;
   }
@@ -91,5 +95,5 @@
     /* border: 1px solid black; */
     margin-left: 0%;
     margin-right: 67%;
+    margin-right: 67%;
   }
-  
