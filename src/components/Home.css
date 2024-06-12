@@ -1,11 +1,6 @@
 @import url("Colour.css");
 
 
-body {
-  margin: 1px;
-  background-color: red;
-  /* background-color: var(--cskyellow--); */
-}
 
 .header-content{
   color: black;
@@ -29,3 +24,59 @@ body {
 
 
 
+
+
+#accountDetails {
+  background-color: rgba(215, 215, 215, 0.573);
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  font-family: 'Arial', sans-serif;
+  color: #000000;
+}
+
+#accountDetails select {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #495057;
+  margin-bottom: 10px;
+}
+
+#accountDetails p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--navyblue);
+}
+
+.wallet-status {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding: 0%;
+  justify-content: center;
+}
+
+.wallet-img-div {
+  margin-right: 10px; /* Adjust the space between the image and text */
+}
+
+.wallet-image {
+  width: 30px; /* Adjust the size of the wallet image */
+  height: auto;
+}
+
+.wallet-status p {
+  margin: 0; /* Remove any default margin from the paragraph */
+}
+
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

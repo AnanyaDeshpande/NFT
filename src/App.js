@@ -9,7 +9,7 @@ import Login from './components/Login';
 import Register from './components/Register'
 import Dashboard from './components/Dashboard';
 import AutoType from './components/AutoType';
-
+import Contactus from './components/Contactus'
 function App() {
   return (
     <AccountProvider>
@@ -23,6 +23,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/autotype" element={<AutoType/>}/>
+          <Route path="/contactus" element={<Contactus/>}/>
     
         </Routes>
       </Router>

@@ -1,66 +1,150 @@
 @import url("Colour.css");
 @import url("Navbar.css");
 
-
-/* body { */
-  /* margin: 0; */
-  /* font-family: Arial, sans-serif; */
-  /* background-color: #FFF2D7; */
-/* } */
-
-
-
 .home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  justify-content: center;
   padding: 20px;
-  color: black;
-  /* color: var(--rcbred); */
+}
+.home-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 
-.home-header {
-  /* margin-top: 20px; */
-  color: #000c8b;
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
 }
 
 .faq-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .faq-item {
-  position: relative; /* Add this line */
-  width: 50%;
-  margin-bottom: 20px;
-  background-color: #FED8B1;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
   padding: 20px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.faq-item:hover {
-  transform: translateY(-5px);
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .faq-question {
-  font-size: 1.2em;
   font-weight: bold;
+  color: #333;
   margin-bottom: 10px;
+  text-align: left;
 }
 
 .faq-answer {
-  font-size: 1em;
+  color: #333;
+  text-align: justify;
+  font-size: large;
+  line-height: 1.6;
 }
 
-.down-arrow {
-  position: absolute;
-  top: 10px; /* Adjust as needed */
-  right: 10px; /* Adjust as needed */
-  color: #8b0000;
-  font-size: 1.2em;
+
+.teamcards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 50px;
 }
+
+.card {
+  padding: 30px;
+  flex: 1 0 10%; /* flex-grow | flex-shrink | flex-basis */
+  box-shadow: 0 4px 8px 0 rgba(137, 137, 137, 0.2);
+  transition: 0.3s;
+  /* border-radius: 5px solid black; */
+  background-color: rgb(255, 255, 255);
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.397);
+}
+
+.card-img-top {
+  width: 80%;
+  height: auto;
+  border-radius: 100%;
+}
+
+/* .card-body {
+  padding: 2px 16px;
+}
+
+.card-text {
+  margin-bottom: 15px;
+} */
+
+.card-text a {
+  color: #333;
+  text-decoration: none;
+}
+
+.link-images img {
+  width: 15%;
+  height: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+/* /////////////////////////////////// */
+header {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.colcard {
+  display: flex;
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.363);
+
+  border-radius: 5px;
+  /* overflow: hidden; */
+  width: 90%;
+  margin: auto;
+  /* margin: 20px auto; */
+
+  background-color: #ffffff;
+}
+
+.colcard-left {
+  /* flex: 0 0 100px; */
+  /* padding: 10px; */
+  background-color: #ffffff;
+  align-items: center;
+
+  /* margin-left: 0px; */
+  margin: auto;
+  width: 20%;
+
+
+  /* min-width: none;
+  max-width: 20px; */
+}
+
+.colcard-right {
+  padding: 10px;
+  width: 80%;
+}
+
+/* .colcard h1, .card h2, .card p {
+  margin: 0 0 10px 0;
+}
+
+.colcard p:last-child {
+  margin-bottom: 0;
+} */
