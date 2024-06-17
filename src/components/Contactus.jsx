@@ -14,6 +14,7 @@ import p4 from "../assets/p4.jpg";
 // https://www.linkedin.com/in/risheek-hiremath-366b0126a/
 import git from "../assets/git.png";
 import link from "../assets/link.png";
+import portfolio from "../assets/portfolio.png";
 
 function About() {
   const [expandedQuestion, setExpandedQuestion] = useState(null);
@@ -76,6 +77,9 @@ function About() {
                 <a href="https://www.linkedin.com/in/ananya-deshpande-9b7ab0261/">
                     <img src={link} />
                 </a>
+                <a href="https://sites.google.com/kletech.ac.in/ananyadeshpande/home">
+                    <img src={portfolio} />
+                </a>
             </div>
         </div>
     </div>
@@ -86,11 +90,14 @@ function About() {
                 <strong>Sanjana Kurkuri</strong>
             </p>
             <div className="link-images">
-                <a href="https://github.com">
+                <a href="https://github.com/SanjanaKurkuri">
                     <img src={git} />
                 </a>
                 <a href="https://www.linkedin.com/in/sanjana-kurkuri-458953222/">
                     <img src={link} />
+                </a>
+                <a href="https://www.linkedin.com/in/sanjana-kurkuri-458953222/">
+                    <img src={portfolio} />
                 </a>
             </div>
         </div>
@@ -100,7 +107,7 @@ function About() {
         <img class="card-img-top" src={p2} alt="Card image cap" />
         <div class="card-body">
             <p class="card-text">
-                <strong>Khushi Appannavas</strong>
+                <strong>Khushi Appannavar</strong>
             </p>
             <div className="link-images">
                 <a href="https://github.com/Khushi-MA">
@@ -108,6 +115,9 @@ function About() {
                 </a>
                 <a href="https://linkedin.com/in/khushi-appannavar">
                     <img src={link} />
+                </a>
+                <a href="https://html-preview.github.io/?url=https://github.com/Khushi-MA/OIBSIP/blob/main/Portfolio/main.html">
+                    <img src={portfolio} />
                 </a>
             </div>
         </div>
@@ -124,6 +134,9 @@ function About() {
                 </a>
                 <a href="https://www.linkedin.com/in/risheek-hiremath-366b0126a/">
                     <img src={link} />
+                </a>
+                <a href="https://www.linkedin.com/in/sanjana-kurkuri-458953222/">
+                    <img src={portfolio} />
                 </a>
             </div>
         </div>

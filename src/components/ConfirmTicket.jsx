@@ -23,6 +23,8 @@ function ConfirmTicket() {
         <li><a href="/">Home</a></li>
         <li><a href="/About">About</a></li>
         <li><a href="/tickets">Tickets</a></li>
+        <li><a href="/contactus">Contact Us</a></li>
+
       </ul>
     </nav>
     <div className="confirmation-container">

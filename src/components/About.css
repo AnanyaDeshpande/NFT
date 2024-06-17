@@ -6,10 +6,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-<<<<<<< HEAD
-  justify-content: center;
-=======
->>>>>>> completed
   padding: 20px;
 }
 .home-header {
@@ -24,20 +20,6 @@ h1 {
   font-size: 32px;
   font-weight: bold;
   color: #333;
-<<<<<<< HEAD
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-}
-
-h1 {
-  font-size: 32px;
-  font-weight: bold;
-  color: #333;
-=======
->>>>>>> completed
 }
 
 .faq-container {
@@ -45,11 +27,6 @@ h1 {
   flex-direction: column;
   width: 100%;
   margin-top: 20px;
-<<<<<<< HEAD
-  width: 100%;
-  margin-top: 20px;
-=======
->>>>>>> completed
 }
 
 .faq-item {
@@ -57,35 +34,16 @@ h1 {
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 5px;
-<<<<<<< HEAD
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 5px;
   padding: 20px;
   margin-bottom: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  margin-bottom: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-=======
-  padding: 20px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
->>>>>>> completed
 }
 
 .faq-question {
   font-weight: bold;
   color: #333;
-<<<<<<< HEAD
-  color: #333;
   margin-bottom: 10px;
   text-align: left;
-  text-align: left;
-=======
-  margin-bottom: 10px;
-  text-align: left;
->>>>>>> completed
 }
 
 .faq-answer {
@@ -93,13 +51,6 @@ h1 {
   text-align: justify;
   font-size: large;
   line-height: 1.6;
-<<<<<<< HEAD
-  color: #333;
-  text-align: justify;
-  font-size: large;
-  line-height: 1.6;
-=======
->>>>>>> completed
 }
 
 

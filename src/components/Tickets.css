@@ -16,10 +16,6 @@
     justify-content: center;
     gap: 30px;
     margin-top: 10px;
-<<<<<<< HEAD
-    margin-top: 10px;
-=======
->>>>>>> completed
     color: #ff4500;
   }
   
@@ -82,20 +78,11 @@
     /* font-size: 14px; */
     border-radius: 2px;
     border: 1px solid var(--grayish);
-<<<<<<< HEAD
-    border: 1px solid var(--grayish);
-=======
->>>>>>> completed
     cursor: pointer;
     background-color: white;
     color: black;
     font-size: 0.9em;
     border-radius: 7px;
-<<<<<<< HEAD
-    font-size: 0.9em;
-    border-radius: 7px;
-=======
->>>>>>> completed
   }
 
   .sortingsec{
@@ -104,8 +91,4 @@
     /* border: 1px solid black; */
     margin-left: 0%;
     margin-right: 67%;
-<<<<<<< HEAD
-    margin-right: 67%;
-=======
->>>>>>> completed
   }
