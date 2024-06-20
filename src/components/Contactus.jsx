@@ -77,7 +77,7 @@ function About() {
                 <a href="https://www.linkedin.com/in/ananya-deshpande-9b7ab0261/">
                     <img src={link} />
                 </a>
-                <a href="https://sites.google.com/kletech.ac.in/ananyadeshpande/home">
+                <a href="https://portfolio-new-50d38.web.app/">
                     <img src={portfolio} />
                 </a>
             </div>
