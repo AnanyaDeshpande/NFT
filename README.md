@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Existing Problem
+Traditional ticketing methods face several challenges:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. **Counterfeiting**: Fake tickets are often created and sold, leading to financial losses and security concerns.
+2. **Scalping**: Unauthorized reselling of tickets at inflated prices, which exploits genuine fans.
+3. **Lack of Transparency**: It is difficult to track the ownership and transfer of tickets, leading to issues in verifying their authenticity.
 
-## Available Scripts
+These problems are particularly prevalent in large-scale events like the Indian Premier League (IPL). The study explores the integration of blockchain technology, particularly through Non-Fungible Tokens (NFTs), into the IPL ticketing system to address these issues and align with Sustainable Development Goal (SDG) 12, specifically Target 12.5, which aims to reduce waste generation through prevention, reduction, recycling, and reuse.
 
-In the project directory, you can run:
+# How NFTs Provide a Solution
 
-### `npm start`
+- Uniqueness and Verifiability
+- Transparent Tracking
+- Secure and Facilitated Resale
+- Substantially reduce waste generation through prevention, reduction, recycling, and reuse
+- Circular economy
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# SDG
+**SDG 12**
+> Responsible Consumption & Production
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Target - 12.5**
+> By 2030, substantially reduce waste generation through prevention, reduction, recycling, and reuse.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Team
+[Ananya Deshpande](https://github.com/AnanyaDeshpande)
+\
+[Khushi Appannavar](https://github.com/Khushi-MA)
+\
+[Risheek Hiremath](https://github.com)
+\
+[Sanjana Kurkuri](https://github.com/SanjanaKurkuri)
 
-### `npm run build`
+# Proposed solution
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Flow diagram
+![Flow Diagram](./src/assets/flow.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Platform in a Nutshell
 
-### `npm run eject`
+**User Experience:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* Browse & view NFTs
+* Manage user accounts
+* Connect crypto wallets (e.g., MetaMask) for secure transactions
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Core System:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Backend server handles application logic and interacts with blockchain
+* Smart contract manages NFT creation, sale, transfer, and ownership
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Technical Stack:**
 
-## Learn More
+* Smart contract development tools (Truffle, Hardhat)
+* Frontend development tools (React, Web3.js/Ethers.js)
+* Local blockchain testing (optional)
+* Blockchain network (Ethereum, Polygon, etc.)
+* Off-chain NFT metadata storage (IPFS)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Requirements
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **React:**
+   The project is bootstrapped with Create React App. Ensure that React and related libraries are installed.
 
-### Code Splitting
+2. **Node.js and npm:**
+   Ensure a compatible version of Node.js is installed; Create React App recommends Node >= 14.0.0 and npm >= 5.6.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. **Browserslist:**
+   This affects how Babel and other tools compile and polyfill the JavaScript code.
 
-### Analyzing the Bundle Size
+4. **Truffle:**
+   Mentioned as the main entry point (`"main": "truffle-config.js"`), indicating that the project involves Ethereum smart contract development.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5. **Hardhat:**
+   Several Hardhat-related packages (`@nomiclabs/hardhat-ethers`, `@nomiclabs/hardhat-waffle`, `hardhat`) are listed under `devDependencies`. This is an alternative to Truffle, offering similar functionalities.
 
-### Making a Progressive Web App
+6. **Ethers.js:**
+   The `ethers` package is a library for interacting with the Ethereum blockchain and its ecosystem.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+7. **Ethereum Waffle:**
+   Included in `devDependencies` (`"ethereum-waffle": "^4.0.10"`), it's a library for writing and testing smart contracts.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+8. **@types/sinon-chai:**
+   This is a TypeScript declaration package for Sinon-Chai.
