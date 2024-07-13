@@ -37,7 +37,6 @@ These problems are particularly prevalent in large-scale events like the Indian 
 ## Flow diagram
 ![Flow Diagram](./src/assets/flow.png)
 
-
 ## Platform in a Nutshell
 
 **User Experience:**
