@@ -33,7 +33,12 @@ These problems are particularly prevalent in large-scale events like the Indian 
 [Sanjana Kurkuri](https://github.com/SanjanaKurkuri)
 
 # Proposed solution
-[Watch the video](https://github.com/AnanyaDeshpande/NFT/blob/main/src/assets/nftcut.mp4)
+
+[Click to watch the video](https://github.com/AnanyaDeshpande/NFT/blob/main/src/assets/nftcut.mp4)
+
+![Flow Diagram](./src/assets/flowlook.png)
+
+
 
 ## Flow diagram
 ![Flow Diagram](./src/assets/flow.png)
