@@ -36,8 +36,6 @@ These problems are particularly prevalent in large-scale events like the Indian 
 
 [Click to watch the video](https://github.com/AnanyaDeshpande/NFT/blob/main/src/assets/nftcut.mp4)
 
-![Flow Diagram](./src/assets/presentgif.gif =x250)
-
 <img src="./src/assets/presentgif.gif" width="600" height="337.5">
 
 
